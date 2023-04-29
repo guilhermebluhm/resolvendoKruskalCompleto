@@ -5,8 +5,11 @@
 class grafo{
 
     private:
+    //referencia aos pais(vertices)
     int *verticesReferencia;
+    //grafo
     std::vector<std::pair<int, std::pair<int,int>>> G;
+    //arvore espalhada minima
     std::vector<std::pair<int, std::pair<int,int>>> M;
     int verticesGrafo;
     public:
@@ -19,7 +22,7 @@ class grafo{
         G.clear();
         M.clear();
     }
-    void AddWeightedEdge(int w, int s, int d){
+    void adicionarPesoAresta(int w, int s, int d){
         //D -> PESO
         //S -> ARESTA U
         //D -> ARESTA V
@@ -69,21 +72,21 @@ class grafo{
 int main(){
 
   grafo g{6};
-  g.AddWeightedEdge(0, 1, 4);
-  g.AddWeightedEdge(0, 2, 4);
-  g.AddWeightedEdge(1, 2, 2);
-  g.AddWeightedEdge(1, 0, 4);
-  g.AddWeightedEdge(2, 0, 4);
-  g.AddWeightedEdge(2, 1, 2);
-  g.AddWeightedEdge(2, 3, 3);
-  g.AddWeightedEdge(2, 5, 2);
-  g.AddWeightedEdge(2, 4, 4);
-  g.AddWeightedEdge(3, 2, 3);
-  g.AddWeightedEdge(3, 4, 3);
-  g.AddWeightedEdge(4, 2, 4);
-  g.AddWeightedEdge(4, 3, 3);
-  g.AddWeightedEdge(5, 2, 2);
-  g.AddWeightedEdge(5, 4, 3);
+  g.adicionarPesoAresta(0, 1, 4);
+  g.adicionarPesoAresta(0, 2, 4);
+  g.adicionarPesoAresta(1, 2, 2);
+  g.adicionarPesoAresta(1, 0, 4);
+  g.adicionarPesoAresta(2, 0, 4);
+  g.adicionarPesoAresta(2, 1, 2);
+  g.adicionarPesoAresta(2, 3, 3);
+  g.adicionarPesoAresta(2, 5, 2);
+  g.adicionarPesoAresta(2, 4, 4);
+  g.adicionarPesoAresta(3, 2, 3);
+  g.adicionarPesoAresta(3, 4, 3);
+  g.adicionarPesoAresta(4, 2, 4);
+  g.adicionarPesoAresta(4, 3, 3);
+  g.adicionarPesoAresta(5, 2, 2);
+  g.adicionarPesoAresta(5, 4, 3);
   g.kruskal();
   g.imprimirMST();
 
